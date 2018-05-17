@@ -8,7 +8,7 @@ namespace GradesUtility
 {
     public class GradeBook
     {
-        List<float> grades;
+        private List<float> grades;
 
         public GradeBook()
         {
