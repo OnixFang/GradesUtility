@@ -11,6 +11,37 @@ namespace GradesUtility.Tests.Types
     public class TypesTests
     {
         [TestMethod]
+        public void ValueTypesPassByValue()
+        {
+            int x = 100;
+
+            ModifyNumber(x);
+
+            Assert.AreEqual(x, 100);
+        }
+
+        private void ModifyNumber(int number)
+        {
+            number++;
+        }
+
+        [TestMethod]
+        public void ReferenceTypesPassByReference()
+        {
+            GradeBook book1 = new GradeBook();
+            GradeBook book2 = book1;
+
+            GiveNameToGradeBook(book2);
+
+            Assert.AreEqual("A Grade Book", book1.Name);
+        }
+
+        private void GiveNameToGradeBook(GradeBook book)
+        {
+            book.Name = "A Grade Book";
+        }
+
+        [TestMethod]
         public void StringComparison()
         {
             string name1 = "Ulises";
