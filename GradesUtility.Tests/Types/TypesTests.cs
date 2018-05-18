@@ -11,6 +11,41 @@ namespace GradesUtility.Tests.Types
     public class TypesTests
     {
         [TestMethod]
+        public void UsingArrays()
+        {
+            float[] grades = new float[3];
+
+            AddGrades(grades);
+
+            Assert.AreEqual(87.3f, grades[0]);
+        }
+
+        private void AddGrades(float[] grades)
+        {
+            grades[0] = 87.3f;
+        }
+
+        [TestMethod]
+        public void UppercaseString()
+        {
+            string name = "Ulises";
+
+            name = name.ToUpper();
+
+            Assert.AreEqual("ULISES", name);
+        }
+
+        [TestMethod]
+        public void AddDaysToDateTime()
+        {
+            DateTime date = new DateTime(2018, 1, 1);
+
+            date = date.AddDays(1);
+
+            Assert.AreEqual(2, date.Day);
+        }
+
+        [TestMethod]
         public void ValueTypesPassByValue()
         {
             int x = 100;
