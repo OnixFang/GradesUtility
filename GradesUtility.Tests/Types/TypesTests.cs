@@ -8,8 +8,19 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace GradesUtility.Tests.Types
 {
     [TestClass]
-    public class ReferenceTypesTests
+    public class TypesTests
     {
+        [TestMethod]
+        public void StringComparison()
+        {
+            string name1 = "Ulises";
+            string name2 = "ulises";
+
+            bool result = String.Equals(name1, name2, System.StringComparison.InvariantCultureIgnoreCase);
+
+            Assert.IsTrue(result);
+        }
+
         [TestMethod]
         public void IntVariablesHoldAValue()
         {
