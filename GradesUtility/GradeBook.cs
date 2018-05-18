@@ -10,9 +10,16 @@ namespace GradesUtility
     {
         private List<float> grades;
 
+        public string Name;
+
         public GradeBook()
         {
             grades = new List<float>();
+        }
+
+        public GradeBook(string name)
+        {
+            Name = name;
         }
 
         public void AddGrade(float grade)
