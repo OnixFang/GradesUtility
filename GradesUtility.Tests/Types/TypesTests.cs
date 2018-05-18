@@ -17,12 +17,12 @@ namespace GradesUtility.Tests.Types
 
             ModifyNumber(x);
 
-            Assert.AreEqual(x, 100);
+            Assert.AreEqual(100, x);
         }
 
         private void ModifyNumber(int number)
         {
-            number++;
+            number =+ 10;
         }
 
         [TestMethod]
