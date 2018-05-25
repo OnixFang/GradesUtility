@@ -21,7 +21,7 @@ namespace GradesUtility.Tests
 
             GradeStatistics stats = book.ComputeStatistics();
 
-            Assert.AreEqual(90, stats.highestGrade);
+            Assert.AreEqual(90, stats.HighestGrade);
         }
 
         [TestMethod]
@@ -34,7 +34,7 @@ namespace GradesUtility.Tests
 
             GradeStatistics stats = book.ComputeStatistics();
 
-            Assert.AreEqual(89, stats.lowestGrade);
+            Assert.AreEqual(89, stats.LowestGrade);
         }
 
         [TestMethod]
@@ -48,7 +48,7 @@ namespace GradesUtility.Tests
 
             GradeStatistics stats = book.ComputeStatistics();
 
-            Assert.AreEqual(85.66f, stats.averageGrade, 0.01);
+            Assert.AreEqual(85.66f, stats.AverageGrade, 0.01);
         }
     }
 }

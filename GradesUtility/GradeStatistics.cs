@@ -8,15 +8,45 @@ namespace GradesUtility
 {
     public class GradeStatistics
     {
-        public float averageGrade;
-        public float highestGrade;
-        public float lowestGrade;
+        public float AverageGrade;
+        public float HighestGrade;
+        public float LowestGrade;
+
+        public string LetterGrade
+        {
+            get
+            {
+                string result;
+
+                if (AverageGrade >= 90)
+                {
+                    result = "A";
+                }
+                else if (AverageGrade >= 80)
+                {
+                    result = "B";
+                }
+                else if (AverageGrade >= 70)
+                {
+                    result = "C";
+                }
+                else if (AverageGrade >= 60)
+                {
+                    result = "D";
+                }
+                else
+                {
+                    result = "F";
+                }
+                return result;
+            }
+        }
 
         public GradeStatistics()
         {
-            averageGrade = 0;
-            highestGrade = 0;
-            lowestGrade = float.MaxValue;
+            AverageGrade = 0;
+            HighestGrade = 0;
+            LowestGrade = float.MaxValue;
         }
     }
 }

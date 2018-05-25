@@ -19,14 +19,20 @@ namespace GradesUtility
 
             GradeStatistics stats = book.ComputeStatistics();
 
-            WriteResults("Highest Grade", stats.highestGrade);
-            WriteResults("Lowest Grade", stats.lowestGrade);
-            WriteResults("Average Grade", stats.averageGrade);
+            WriteResults("Highest Grade", stats.HighestGrade);
+            WriteResults("Lowest Grade", stats.LowestGrade);
+            WriteResults("Average Grade", stats.AverageGrade);
+            WriteResults("Grade", stats.LetterGrade);
         }
 
         private static void WriteResults(string description, float result)
         {
             Console.WriteLine($"{description}: {result:F2}");
+        }
+
+        private static void WriteResults(string description, string result)
+        {
+            Console.WriteLine($"{description}: {result}");
         }
     }
 }
