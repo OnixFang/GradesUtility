@@ -22,7 +22,7 @@ namespace GradesUtility
             WriteResults("Highest Grade", stats.HighestGrade);
             WriteResults("Lowest Grade", stats.LowestGrade);
             WriteResults("Average Grade", stats.AverageGrade);
-            WriteResults("Grade", stats.LetterGrade);
+            WriteResults(stats.Description, stats.LetterGrade);
         }
 
         private static void WriteResults(string description, float result)

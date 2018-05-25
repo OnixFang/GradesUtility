@@ -42,6 +42,33 @@ namespace GradesUtility
             }
         }
 
+        public string Description
+        {
+            get
+            {
+                string result;
+                switch (LetterGrade)
+                {
+                    case "A":
+                        result = "Excelent";
+                        break;
+                    case "B":
+                        result = "Good";
+                        break;
+                    case "C":
+                        result = "Average";
+                        break;
+                    case "D":
+                        result = "Below average";
+                        break;
+                    default:
+                        result = "Failing";
+                        break;
+                }
+                return result;
+            }
+        }
+
         public GradeStatistics()
         {
             AverageGrade = 0;
