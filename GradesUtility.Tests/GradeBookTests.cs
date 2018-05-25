@@ -87,5 +87,21 @@ namespace GradesUtility.Tests
 
             Assert.AreEqual("C", stats.LetterGrade);
         }
+
+        [TestMethod]
+        public void ComputeDescription()
+        {
+            GradeBook book = new GradeBook();
+
+            book.AddGrade(80);
+            book.AddGrade(90);
+            book.AddGrade(95);
+
+            GradeStatistics stats = book.ComputeStatistics();
+
+            WriteResults("Expected value", "Good");
+
+            Assert.AreEqual("Good", stats.Description);
+        }
     }
 }
