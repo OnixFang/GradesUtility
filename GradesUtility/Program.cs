@@ -17,6 +17,10 @@ namespace GradesUtility
             book.AddGrade(94);
             book.AddGrade(75);
 
+            Console.WriteLine("Grades:");
+
+            book.WriteGrades(Console.Out);
+
             GradeStatistics stats = book.ComputeStatistics();
 
             WriteResults("Highest Grade", stats.HighestGrade);
