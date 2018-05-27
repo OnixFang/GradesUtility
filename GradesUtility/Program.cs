@@ -34,9 +34,9 @@ namespace GradesUtility
             GradeStatistics stats = book.ComputeStatistics();
 
             Console.WriteLine(book.Name);
-            WriteResults("Highest Grade", stats.highestGrade);
-            WriteResults("Lowest Grade", stats.lowestGrade);
-            WriteResults("Average Grade", stats.averageGrade);
+            WriteResults("Highest Grade", stats.HighestGrade);
+            WriteResults("Lowest Grade", stats.LowestGrade);
+            WriteResults("Average Grade", stats.AverageGrade);
             WriteResults(stats.Description, stats.LetterGrade);
         }
 
