@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -50,6 +51,14 @@ namespace GradesUtility
             grades.Add(grade);
         }
 
+        public void WriteGrades(TextWriter destination)
+        {
+            for (int i = 0; i < grades.Count; i++)
+            {
+                destination.WriteLine(grades[i]);
+            }
+        }
+
         public GradeStatistics ComputeStatistics()
         {
             GradeStatistics stats = new GradeStatistics();
@@ -58,12 +67,12 @@ namespace GradesUtility
 
             foreach (float grade in grades)
             {
-                stats.highestGrade = Math.Max(grade, stats.highestGrade);
-                stats.lowestGrade = Math.Min(grade, stats.lowestGrade);
+                stats.HighestGrade = Math.Max(grade, stats.HighestGrade);
+                stats.LowestGrade = Math.Min(grade, stats.LowestGrade);
                 sum += grade;
             }
 
-            stats.averageGrade = sum / grades.Count;
+            stats.AverageGrade = sum / grades.Count;
 
             return stats;
         }

@@ -27,12 +27,17 @@ namespace GradesUtility
             book.AddGrade(94);
             book.AddGrade(75);
 
+            Console.WriteLine("Grades:");
+
+            book.WriteGrades(Console.Out);
+
             GradeStatistics stats = book.ComputeStatistics();
 
             Console.WriteLine(book.Name);
             WriteResults("Highest Grade", stats.highestGrade);
             WriteResults("Lowest Grade", stats.lowestGrade);
             WriteResults("Average Grade", stats.averageGrade);
+            WriteResults(stats.Description, stats.LetterGrade);
         }
 
         static void OnNameChanged(object sender, NameChangedEventArgs args)
@@ -43,6 +48,11 @@ namespace GradesUtility
         private static void WriteResults(string description, float result)
         {
             Console.WriteLine($"{description}: {result:F2}");
+        }
+
+        private static void WriteResults(string description, string result)
+        {
+            Console.WriteLine($"{description}: {result}");
         }
     }
 }
