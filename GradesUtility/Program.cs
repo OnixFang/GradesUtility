@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,7 +12,40 @@ namespace GradesUtility
         static void Main(string[] args)
         {
             GradeBook book = new GradeBook();
+            SetGradeBookName(book);
+            AddGradesToGradeBook(book);
+            CreateGradesTextFile(book);
+            WriteStatisticsResults(book);
+        }
 
+        private static void WriteStatisticsResults(GradeBook book)
+        {
+            GradeStatistics stats = book.ComputeStatistics();
+            Console.WriteLine(book.Name);
+            WriteResults("Highest Grade", stats.HighestGrade);
+            WriteResults("Lowest Grade", stats.LowestGrade);
+            WriteResults("Average Grade", stats.AverageGrade);
+            WriteResults(stats.Description, stats.LetterGrade);
+        }
+
+        private static void CreateGradesTextFile(GradeBook book)
+        {
+            using (StreamWriter outputfile = File.CreateText("grades.txt"))
+            {
+                book.WriteGrades(outputfile);
+            }
+        }
+
+        private static void AddGradesToGradeBook(GradeBook book)
+        {
+            book.AddGrade(97);
+            book.AddGrade(80);
+            book.AddGrade(94);
+            book.AddGrade(75);
+        }
+
+        private static void SetGradeBookName(GradeBook book)
+        {
             try
             {
                 Console.WriteLine("Please enter a name for your grade book:");
@@ -21,23 +55,6 @@ namespace GradesUtility
             {
                 Console.WriteLine(ex.Message);
             }
-
-            book.AddGrade(97);
-            book.AddGrade(80);
-            book.AddGrade(94);
-            book.AddGrade(75);
-
-            Console.WriteLine("Grades:");
-
-            book.WriteGrades(Console.Out);
-
-            GradeStatistics stats = book.ComputeStatistics();
-
-            Console.WriteLine(book.Name);
-            WriteResults("Highest Grade", stats.HighestGrade);
-            WriteResults("Lowest Grade", stats.LowestGrade);
-            WriteResults("Average Grade", stats.AverageGrade);
-            WriteResults(stats.Description, stats.LetterGrade);
         }
 
         static void OnNameChanged(object sender, NameChangedEventArgs args)
