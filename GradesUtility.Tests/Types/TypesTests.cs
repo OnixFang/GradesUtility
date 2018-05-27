@@ -10,6 +10,11 @@ namespace GradesUtility.Tests.Types
     [TestClass]
     public class TypesTests
     {
+        static void OnNameChanged(object sender, NameChangedEventArgs args)
+        {
+            Console.WriteLine($"The name has changed from {args.ExistingName} to {args.NewName}.");
+        }
+
         [TestMethod]
         public void UsingArrays()
         {
@@ -66,6 +71,8 @@ namespace GradesUtility.Tests.Types
             GradeBook book1 = new GradeBook();
             GradeBook book2 = book1;
 
+            book1.NameChanged += OnNameChanged;
+
             GiveNameToGradeBook(book2);
 
             Assert.AreEqual("A Grade Book", book1.Name);
@@ -103,6 +110,8 @@ namespace GradesUtility.Tests.Types
         {
             GradeBook book1 = new GradeBook();
             GradeBook book2 = book1;
+
+            book1.NameChanged += OnNameChanged;
 
             book1.Name = "Ulises' gradebook";
 

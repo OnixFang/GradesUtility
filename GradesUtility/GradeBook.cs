@@ -13,6 +13,8 @@ namespace GradesUtility
 
         private string _name;
 
+        public event NameChangedDelegate NameChanged;
+
         public string Name
         {
             get
@@ -21,10 +23,16 @@ namespace GradesUtility
             }
             set
             {
-                if (!String.IsNullOrEmpty(value))
+                if (_name != value && NameChanged != null)
                 {
-                    _name = value;
+                    NameChangedEventArgs args = new NameChangedEventArgs();
+                    args.ExistingName = _name;
+                    args.NewName = value;
+
+                    NameChanged(this, args);
                 }
+
+                _name = value;
             }
         }
 
