@@ -12,10 +12,15 @@ namespace GradesUtility
         {
             GradeBook book = new GradeBook();
 
-            book.NameChanged += OnNameChanged;
-
-            book.Name = "New Book";
-            book.Name = "Ulises' grade book";
+            try
+            {
+                Console.WriteLine("Please enter a name for your grade book:");
+                book.Name = Console.ReadLine();
+            }
+            catch (ArgumentException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
 
             book.AddGrade(97);
             book.AddGrade(80);
