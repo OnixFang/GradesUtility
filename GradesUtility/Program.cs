@@ -11,8 +11,9 @@ namespace GradesUtility
     {
         static void Main(string[] args)
         {
-            GradeBook book = new GradeBook();
-            SetGradeBookName(book);
+            GradeBook book = new ThrowAwayGradeBook();
+            
+            // SetGradeBookName(book);
             AddGradesToGradeBook(book);
             CreateGradesTextFile(book);
             WriteStatisticsResults(book);

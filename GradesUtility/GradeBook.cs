@@ -9,7 +9,7 @@ namespace GradesUtility
 {
     public class GradeBook
     {
-        private List<float> grades;
+        protected List<float> grades;
 
         private string _name;
 
@@ -59,8 +59,10 @@ namespace GradesUtility
             }
         }
 
-        public GradeStatistics ComputeStatistics()
+        public virtual GradeStatistics ComputeStatistics()
         {
+            Console.WriteLine("GradeBook::ComputeStatistics");
+
             GradeStatistics stats = new GradeStatistics();
 
             float sum = 0;
