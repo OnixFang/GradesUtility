@@ -7,34 +7,9 @@ using System.Threading.Tasks;
 
 namespace GradesUtility
 {
-    public class GradeBook
+    public class GradeBook : GradeTracker
     {
         protected List<float> grades;
-
-        private string _name;
-
-        public event NameChangedDelegate NameChanged;
-
-        public string Name
-        {
-            get
-            {
-                return _name;
-            }
-            set
-            {
-                if (_name != value && NameChanged != null)
-                {
-                    NameChangedEventArgs args = new NameChangedEventArgs();
-                    args.ExistingName = _name;
-                    args.NewName = value;
-
-                    NameChanged(this, args);
-                }
-
-                _name = value;
-            }
-        }
 
         public GradeBook()
         {
@@ -46,12 +21,12 @@ namespace GradesUtility
             Name = name;
         }
 
-        public void AddGrade(float grade)
+        public override void AddGrade(float grade)
         {
             grades.Add(grade);
         }
 
-        public void WriteGrades(TextWriter destination)
+        public override void WriteGrades(TextWriter destination)
         {
             for (int i = 0; i < grades.Count; i++)
             {
@@ -59,7 +34,7 @@ namespace GradesUtility
             }
         }
 
-        public virtual GradeStatistics ComputeStatistics()
+        public override GradeStatistics ComputeStatistics()
         {
             Console.WriteLine("GradeBook::ComputeStatistics");
 
